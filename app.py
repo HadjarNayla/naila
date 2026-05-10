@@ -1,25 +1,17 @@
 import streamlit as st
 
-# Button — returns True only when clicked
-if st.button("Click me!", type="primary"):
-    st.balloons()
-    st.success("Button clicked! 🎉")
+# 3 equal columns
+col1, col2, col3 = st.columns(3)
+with col1:
+    st.metric("Sales", "$12,450", "+8%")
+with col2:
+    st.metric("Customers", "342", "+15")
+with col3:
+    st.metric("Satisfaction", "4.8/5", "+0.1")
 
-# Checkbox — returns True or False
-is_active = st.checkbox("Enable advanced option")
-if is_active:
-    st.info("Option is ON")
-
-# Slider — returns the selected number
-age = st.slider("Age", min_value=0, max_value=100, value=25, step=1)
-st.write(f"Your age: {age} years old")
-
-# Range slider (picks two values)
-price_range = st.slider("Price range ($)", 0, 1000, (100, 500))
-st.write(f"From ${price_range[0]} to ${price_range[1]}")
-
-# Radio buttons
-color = st.radio("Favourite color", ["Red", "Green", "Blue"], horizontal=True)
-
-# Toggle switch
-dark_mode = st.toggle("Dark mode")
+# Columns with custom proportions (2:1 ratio)
+left, right = st.columns([2, 1])
+with left:
+    st.write("Main content (wider)")
+with right:
+    st.write("Side panel (narrower)")
