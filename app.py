@@ -1,16 +1,26 @@
 import streamlit as st
-import pandas as pd
 
-tab_data, tab_chart, tab_settings = st.tabs(["📊 Data", "📈 Charts", "⚙️ Settings"])
+# Inject custom CSS
+st.markdown("""
+<style>
+    /* Change the app background */
+    .stApp { background-color: #fafafa; }
 
-with tab_data:
-    st.write("Data table")
-    st.dataframe(pd.DataFrame({"A": [1,2,3], "B": [4,5,6]}))
+    /* Custom class for a red title */
+    .red-title {
+        color: #FF4B4B;
+        font-size: 2rem;
+        font-weight: 800;
+    }
 
-with tab_chart:
-    st.write("Charts go here")
-    st.line_chart({"values": [10, 25, 15, 30, 22]})
+    /* Target Streamlit metric values */
+    div[data-testid="stMetricValue"] {
+        font-size: 2.2rem;
+        color: #0066cc;
+    }
+</style>
+""", unsafe_allow_html=True)
 
-with tab_settings:
-    threshold = st.slider("Alert threshold", 0, 100, 50)
-    st.write(f"Threshold set to {threshold}")
+st.markdown('<h1 class="red-title">Custom Title!</h1>',
+            unsafe_allow_html=True)
+st.metric("Revenue", "$125,000", "+12%")
