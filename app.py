@@ -1,17 +1,16 @@
 import streamlit as st
+import pandas as pd
 
-# 3 equal columns
-col1, col2, col3 = st.columns(3)
-with col1:
-    st.metric("Sales", "$12,450", "+8%")
-with col2:
-    st.metric("Customers", "342", "+15")
-with col3:
-    st.metric("Satisfaction", "4.8/5", "+0.1")
+tab_data, tab_chart, tab_settings = st.tabs(["📊 Data", "📈 Charts", "⚙️ Settings"])
 
-# Columns with custom proportions (2:1 ratio)
-left, right = st.columns([2, 1])
-with left:
-    st.write("Main content (wider)")
-with right:
-    st.write("Side panel (narrower)")
+with tab_data:
+    st.write("Data table")
+    st.dataframe(pd.DataFrame({"A": [1,2,3], "B": [4,5,6]}))
+
+with tab_chart:
+    st.write("Charts go here")
+    st.line_chart({"values": [10, 25, 15, 30, 22]})
+
+with tab_settings:
+    threshold = st.slider("Alert threshold", 0, 100, 50)
+    st.write(f"Threshold set to {threshold}")
