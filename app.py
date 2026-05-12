@@ -88,7 +88,7 @@ T = {
     "tab_score":   {"ar": "🏆 النتيجة النهائية",                          "fr": "🏆 Résultat final"},
     "qcm_title":   {"ar": "### 📝 اختر الإجابة الصحيحة",                  "fr": "### 📝 Choisissez la bonne réponse"},
     "qcm_cap":     {"ar": "18 سؤال — اضغط على إجابة لتأكيدها",           "fr": "18 questions — cliquez sur une réponse pour la valider"},
-    "ex_title":    {"ar": "### 💻 تمرين شامل: إدارة درجات الفصل",        "fr": "### 💻 Exercice complet : Gestion des notes d'une classe"},
+    "ex_title":    {"ar": "### 💻 تمرين شامل: إدارة مخزون المنتجات",     "fr": "### 💻 Exercice complet : Gestion d'un stock de produits"},
     "ex_cap":      {"ar": "اكتبي الكود ثم اضغطي ▶ تشغيل",               "fr": "Écrivez le code puis cliquez ▶ Exécuter"},
     "run":         {"ar": "▶ تشغيل",                                      "fr": "▶ Exécuter"},
     "hint":        {"ar": "💡 تلميح",                                     "fr": "💡 Indice"},
@@ -319,159 +319,101 @@ def q_opts(q):
     return o[lang] if isinstance(o, dict) else o
 
 # ─────────────────────────────────────────────
-# SINGLE BIG EXERCISE
+# SINGLE BIG EXERCISE  –  Gestion d'un stock
 # ─────────────────────────────────────────────
 EXPECTED_OUTPUT = (
-    "Étudiant 1 : note=8 → Refusé\n"
-    "Étudiant 2 : note=15 → Bien\n"
-    "Étudiant 3 : note=11 → Passable\n"
-    "Étudiant 4 : note=17 → Très bien\n"
-    "Moyenne : 12.75\n"
-    "Maximum : 17\n"
-    "Minimum : 8\n"
-    "Admis   : 3\n"
-    "Refusés : 1"
+    "Produit 1 : Stylo        | Qté: 5  → Stock faible\n"
+    "Produit 2 : Cahier       | Qté: 42 → Grand stock\n"
+    "Produit 3 : Règle        | Qté: 12 → Stock moyen\n"
+    "Produit 4 : Gomme        | Qté: 73 → Très grand stock\n"
+    "Produit 5 : Crayon       | Qté: 8  → Stock faible\n"
+    "---\n"
+    "Total     : 140\n"
+    "Maximum   : 73\n"
+    "Minimum   : 5\n"
+    "Suffisant : 3\n"
+    "Faible    : 2"
 )
 
 STARTER_CODE = """\
-# ── Données fixes (ne pas modifier) ──────────────────
-N = 4
-notes = [8, 15, 11, 17]
+# ── Données fixes (ne pas modifier) ─────────────────────────
+N = 5
+noms = ["Stylo", "Cahier", "Règle", "Gomme", "Crayon"]
+qtes = [5, 42, 12, 73, 8]
 
-# ── 1. Définir la fonction get_mention(note) ──────────
-def get_mention(note):
-    # Complétez ici / أكملي هنا
-    pass
-
-# ── 2. Afficher chaque étudiant ───────────────────────
-# Format exact : Étudiant 1 : note=8 → Refusé
-for i in range(N):
+# ── 1. Fonction get_categorie(qte) ──────────────────────────
+# Retourne la catégorie selon la quantité :
+#   "Très grand stock"  si qte >= 50
+#   "Grand stock"       si qte >= 30
+#   "Stock moyen"       si qte >= 10
+#   "Stock faible"      si qte <  10
+def get_categorie(qte):
     pass  # Complétez ici / أكملي هنا
 
-# ── 3. Statistiques (sans sum/max/min built-ins) ──────
-total = 0
-admis = 0
-refuses = 0
-max_note = notes[0]
-min_note = notes[0]
+
+# ── 2. Afficher chaque produit avec une boucle for ──────────
+# Format EXACT attendu (espaces compris) :
+#   Produit 1 : Stylo        | Qté: 5  → Stock faible
+for i in range(N):
+    nom  = noms[i]
+    qte  = qtes[i]
+    cat  = get_categorie(qte)
+    pass  # remplacez ce pass par le print / استبدلي هذا السطر
+
+
+# ── 3. Statistiques avec une boucle while ───────────────────
+total     = 0
+suffisant = 0
+faible    = 0
+max_qte   = qtes[0]
+min_qte   = qtes[0]
 
 i = 0
 while i < N:
     pass  # Complétez ici / أكملي هنا
 
-moyenne = total / N
-
-print(f"Moyenne : {moyenne}")
-print(f"Maximum : {max_note}")
-print(f"Minimum : {min_note}")
-print(f"Admis   : {admis}")
-print(f"Refusés : {refuses}")
-"""
-
-REFERENCE_SOLUTION = """\
-N = 4
-notes = [8, 15, 11, 17]
-
-def get_mention(note):
-    if note >= 16:
-        return "Très bien"
-    elif note >= 14:
-        return "Bien"
-    elif note >= 12:
-        return "Assez bien"
-    elif note >= 10:
-        return "Passable"
-    else:
-        return "Refusé"
-
-for i in range(N):
-    print(f"Étudiant {i+1} : note={notes[i]} → {get_mention(notes[i])}")
-
-total = 0
-admis = 0
-refuses = 0
-max_note = notes[0]
-min_note = notes[0]
-
-i = 0
-while i < N:
-    total += notes[i]
-    if notes[i] >= 10:
-        admis += 1
-    else:
-        refuses += 1
-    if notes[i] > max_note:
-        max_note = notes[i]
-    if notes[i] < min_note:
-        min_note = notes[i]
-    i += 1
-
-moyenne = total / N
-
-print(f"Moyenne : {moyenne}")
-print(f"Maximum : {max_note}")
-print(f"Minimum : {min_note}")
-print(f"Admis   : {admis}")
-print(f"Refusés : {refuses}")
+print("---")
+print(f"Total     : {total}")
+print(f"Maximum   : {max_qte}")
+print(f"Minimum   : {min_qte}")
+print(f"Suffisant : {suffisant}")
+print(f"Faible    : {faible}")
 """
 
 EXERCISE_DESC = {
     "ar": (
         "**يغطي هذا التمرين: المتغيرات · while · for · الشروط · الدوال**\n\n"
         "---\n"
-        "### 📋 المهام\n\n"
-        "**1️⃣ دالة `get_mention(note)` — ترجع المنحة:**\n"
-        "- `Très bien` إذا note ≥ 16\n"
-        "- `Bien` إذا note ≥ 14\n"
-        "- `Assez bien` إذا note ≥ 12\n"
-        "- `Passable` إذا note ≥ 10\n"
-        "- `Refusé` إذا note < 10\n\n"
-        "**2️⃣ حلقة `for` — طباعة كل طالب بالصيغة:**\n"
-        "`Étudiant 1 : note=8 → Refusé`\n\n"
+        "### 🏪 إدارة مخزون المنتجات\n\n"
+        "**1️⃣ دالة `get_categorie(qte)` — ترجع فئة المخزون:**\n"
+        "- `Très grand stock` إذا qte ≥ 50\n"
+        "- `Grand stock` إذا qte ≥ 30\n"
+        "- `Stock moyen` إذا qte ≥ 10\n"
+        "- `Stock faible` إذا qte < 10\n\n"
+        "**2️⃣ حلقة `for` — طباعة كل منتج بالصيغة:**\n"
+        "```\nProduit 1 : Stylo        | Qté: 5  → Stock faible\n```\n\n"
         "**3️⃣ حلقة `while` — حساب:**\n"
-        "- المتوسط · الأعلى · الأدنى\n"
-        "- عدد الناجحين (≥10) وعدد الراسبين\n\n"
+        "- المجموع الكلي · الأعلى · الأدنى\n"
+        "- عدد المنتجات بمخزون كافٍ (≥10) وعدد المنتجات بمخزون ضعيف (<10)\n\n"
         "---\n"
-        "📌 **البيانات المستخدمة:** N=4 · notes=[8, 15, 11, 17]"
+        "📌 **البيانات:** N=5 · noms=[Stylo, Cahier, Règle, Gomme, Crayon] · qtes=[5, 42, 12, 73, 8]"
     ),
     "fr": (
         "**Cet exercice couvre : variables · while · for · conditions · fonctions**\n\n"
         "---\n"
-        "### 📋 Tâches à réaliser\n\n"
-        "**1️⃣ Fonction `get_mention(note)` — retourne la mention :**\n"
-        "- `Très bien` si note ≥ 16\n"
-        "- `Bien` si note ≥ 14\n"
-        "- `Assez bien` si note ≥ 12\n"
-        "- `Passable` si note ≥ 10\n"
-        "- `Refusé` si note < 10\n\n"
-        "**2️⃣ Boucle `for` — afficher chaque étudiant :**\n"
-        "`Étudiant 1 : note=8 → Refusé`\n\n"
+        "### 🏪 Gestion d'un stock de produits\n\n"
+        "**1️⃣ Fonction `get_categorie(qte)` — retourne la catégorie :**\n"
+        "- `Très grand stock` si qte ≥ 50\n"
+        "- `Grand stock` si qte ≥ 30\n"
+        "- `Stock moyen` si qte ≥ 10\n"
+        "- `Stock faible` si qte < 10\n\n"
+        "**2️⃣ Boucle `for` — afficher chaque produit :**\n"
+        "```\nProduit 1 : Stylo        | Qté: 5  → Stock faible\n```\n\n"
         "**3️⃣ Boucle `while` — calculer :**\n"
-        "- Moyenne · Maximum · Minimum\n"
-        "- Nombre d'admis (≥10) et refusés\n\n"
+        "- Total · Maximum · Minimum\n"
+        "- Nombre de produits suffisants (≥10) et en stock faible (<10)\n\n"
         "---\n"
-        "📌 **Données utilisées :** N=4 · notes=[8, 15, 11, 17]"
-    ),
-}
-
-HINT_TEXT = {
-    "ar": (
-        "**get_mention:** استخدمي if/elif/else مع >= بالترتيب من الأعلى للأدنى.\n\n"
-        "**حلقة for:** `print(f\"Étudiant {i+1} : note={notes[i]} → {get_mention(notes[i])}\")`\n\n"
-        "**حلقة while:** داخل الحلقة:\n"
-        "- `total += notes[i]`\n"
-        "- قارني مع max_note وmin_note\n"
-        "- إذا `notes[i] >= 10` زيدي admis وإلا refuses\n"
-        "- لا تنسي: `i += 1`"
-    ),
-    "fr": (
-        "**get_mention :** utilisez if/elif/else avec >= du plus grand au plus petit.\n\n"
-        "**Boucle for :** `print(f\"Étudiant {i+1} : note={notes[i]} → {get_mention(notes[i])}\")`\n\n"
-        "**Boucle while :** dans la boucle :\n"
-        "- `total += notes[i]`\n"
-        "- comparez avec max_note et min_note\n"
-        "- si `notes[i] >= 10` incrémentez admis sinon refuses\n"
-        "- n'oubliez pas : `i += 1`"
+        "📌 **Données :** N=5 · noms=[Stylo, Cahier, Règle, Gomme, Crayon] · qtes=[5, 42, 12, 73, 8]"
     ),
 }
 
@@ -480,7 +422,7 @@ HINT_TEXT = {
 # ─────────────────────────────────────────────
 for k, v in [("qcm_answers",{}),("qcm_locked",{}),
              ("ex_result", False),("ex_output", None),
-             ("ex_code", STARTER_CODE), ("show_solution", False)]:
+             ("ex_code", STARTER_CODE)]:
     if k not in st.session_state:
         st.session_state[k] = v
 
@@ -579,28 +521,13 @@ with tab2:
     code = st.text_area(
         "code",
         value=st.session_state.ex_code,
-        height=420,
+        height=460,
         key=f"ta_big_{lang}",
         label_visibility="collapsed"
     )
     st.session_state.ex_code = code
 
-    col_run, col_hint, col_sol = st.columns([1, 1, 1])
-    with col_run:  run_btn  = st.button(t("run"),  key=f"run_big_{lang}", type="primary", use_container_width=True)
-    with col_hint: hint_btn = st.button(t("hint"), key=f"hint_big_{lang}", use_container_width=True)
-    with col_sol:
-        sol_label = ("🔍 " + ("إخفاء الحل" if st.session_state.show_solution else "عرض الحل النموذجي")) if is_ar else \
-                    ("🔍 " + ("Masquer la solution" if st.session_state.show_solution else "Voir la solution"))
-        if st.button(sol_label, key=f"sol_big_{lang}", use_container_width=True):
-            st.session_state.show_solution = not st.session_state.show_solution
-            st.rerun()
-
-    if hint_btn:
-        st.info(f"{t('hint_lbl')}\n\n{HINT_TEXT[lang]}")
-
-    if st.session_state.show_solution:
-        st.markdown(f"**{t('sol_title')}**")
-        st.code(REFERENCE_SOLUTION, language="python")
+    run_btn = st.button(t("run"), key=f"run_big_{lang}", type="primary", use_container_width=True)
 
     if run_btn:
         out, err = run_code(code)
@@ -626,9 +553,8 @@ with tab2:
     if all_ex():
         st.success(f"{t('ex_done')} 1 / 1 ✅")
     else:
-        prog_val = 1.0 if all_ex() else 0.0
         st.markdown(f'<p class="progress-label">{t("prog_ex")} {"✅" if all_ex() else "⏳"}</p>', unsafe_allow_html=True)
-        st.progress(prog_val)
+        st.progress(1.0 if all_ex() else 0.0)
 
 # ══ TAB 3 ── SCORE ════════════════════════════
 with tab3:
@@ -704,7 +630,7 @@ with tab3:
 
         st.markdown("---")
         if st.button(t("reset"), type="secondary"):
-            for k in ["qcm_answers","qcm_locked","ex_result","ex_output","show_solution"]:
-                st.session_state[k] = {} if k in ["qcm_answers","qcm_locked"] else (False if k != "ex_output" else None)
+            for k in ["qcm_answers","qcm_locked","ex_result","ex_output"]:
+                st.session_state[k] = {} if k in ["qcm_answers","qcm_locked"] else (False if k == "ex_result" else None)
             st.session_state.ex_code = STARTER_CODE
             st.rerun()
