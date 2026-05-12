@@ -335,50 +335,7 @@ EXPECTED_OUTPUT = (
     "Faible    : 2"
 )
 
-STARTER_CODE = """\
-# ── Données fixes (ne pas modifier) ─────────────────────────
-N = 5
-noms = ["Stylo", "Cahier", "Règle", "Gomme", "Crayon"]
-qtes = [5, 42, 12, 73, 8]
-
-# ── 1. Fonction get_categorie(qte) ──────────────────────────
-# Retourne la catégorie selon la quantité :
-#   "Très grand stock"  si qte >= 50
-#   "Grand stock"       si qte >= 30
-#   "Stock moyen"       si qte >= 10
-#   "Stock faible"      si qte <  10
-def get_categorie(qte):
-    pass  # Complétez ici / أكملي هنا
-
-
-# ── 2. Afficher chaque produit avec une boucle for ──────────
-# Format EXACT attendu (espaces compris) :
-#   Produit 1 : Stylo        | Qté: 5  → Stock faible
-for i in range(N):
-    nom  = noms[i]
-    qte  = qtes[i]
-    cat  = get_categorie(qte)
-    pass  # remplacez ce pass par le print / استبدلي هذا السطر
-
-
-# ── 3. Statistiques avec une boucle while ───────────────────
-total     = 0
-suffisant = 0
-faible    = 0
-max_qte   = qtes[0]
-min_qte   = qtes[0]
-
-i = 0
-while i < N:
-    pass  # Complétez ici / أكملي هنا
-
-print("---")
-print(f"Total     : {total}")
-print(f"Maximum   : {max_qte}")
-print(f"Minimum   : {min_qte}")
-print(f"Suffisant : {suffisant}")
-print(f"Faible    : {faible}")
-"""
+STARTER_CODE = ""
 
 EXERCISE_DESC = {
     "ar": (
