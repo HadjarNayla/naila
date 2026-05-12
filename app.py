@@ -81,14 +81,14 @@ h1,h2,h3,h4 {{ font-family: '{ffam}', sans-serif; }}
 # ─────────────────────────────────────────────
 T = {
     "app_title":   {"ar": "🐍 اختبار Python النهائي",                     "fr": "🐍 Test Final Python"},
-    "app_sub":     {"ar": "مع نائلة — 6 دروس · 18 سؤال + 6 تمارين",      "fr": "avec Naïla — 6 leçons · 18 QCM + 6 exercices"},
+    "app_sub":     {"ar": "مع نائلة — 6 دروس · 18 سؤال + تمرين شامل",    "fr": "avec Naïla — 6 leçons · 18 QCM + 1 exercice complet"},
     "byline":      {"ar": "✦ بقلم حجار نائلة",                            "fr": "✦ par Hajjar Naïla"},
     "tab_qcm":     {"ar": "📝 أسئلة QCM",                                 "fr": "📝 QCM"},
-    "tab_ex":      {"ar": "💻 تمارين برمجية",                             "fr": "💻 Exercices de code"},
+    "tab_ex":      {"ar": "💻 تمرين برمجي",                               "fr": "💻 Exercice de code"},
     "tab_score":   {"ar": "🏆 النتيجة النهائية",                          "fr": "🏆 Résultat final"},
     "qcm_title":   {"ar": "### 📝 اختر الإجابة الصحيحة",                  "fr": "### 📝 Choisissez la bonne réponse"},
     "qcm_cap":     {"ar": "18 سؤال — اضغط على إجابة لتأكيدها",           "fr": "18 questions — cliquez sur une réponse pour la valider"},
-    "ex_title":    {"ar": "### 💻 تمارين برمجية",                         "fr": "### 💻 Exercices de code"},
+    "ex_title":    {"ar": "### 💻 تمرين شامل: إدارة درجات الفصل",        "fr": "### 💻 Exercice complet : Gestion des notes d'une classe"},
     "ex_cap":      {"ar": "اكتبي الكود ثم اضغطي ▶ تشغيل",               "fr": "Écrivez le code puis cliquez ▶ Exécuter"},
     "run":         {"ar": "▶ تشغيل",                                      "fr": "▶ Exécuter"},
     "hint":        {"ar": "💡 تلميح",                                     "fr": "💡 Indice"},
@@ -100,24 +100,25 @@ T = {
     "code_err":    {"ar": "🔴 خطأ في الكود:",                             "fr": "🔴 Erreur dans le code :"},
     "correct_ans": {"ar": "الإجابة الصحيحة:",                            "fr": "Bonne réponse :"},
     "qcm_done":    {"ar": "✅ أكملتِ جميع أسئلة QCM! نتيجتك:",           "fr": "✅ Toutes les questions QCM terminées ! Score :"},
-    "ex_done":     {"ar": "✅ أكملتِ جميع التمارين! نتيجتك:",             "fr": "✅ Tous les exercices terminés ! Score :"},
+    "ex_done":     {"ar": "✅ أحسنتِ! التمرين مكتمل:",                    "fr": "✅ Bravo ! Exercice complété :"},
     "prog_q":      {"ar": "الإجابات:",                                   "fr": "Réponses :"},
-    "prog_ex":     {"ar": "التمارين المكتملة:",                           "fr": "Exercices complétés :"},
+    "prog_ex":     {"ar": "التمرين:",                                    "fr": "Exercice :"},
     "score_ttl":   {"ar": "### 🏆 النتيجة النهائية",                      "fr": "### 🏆 Résultat final"},
     "warn_pfx":    {"ar": "⏳ أكملي أولاً:\n- ",                          "fr": "⏳ Complétez d'abord :\n- "},
     "mis_qcm":     {"ar": "أسئلة QCM",                                   "fr": "QCM"},
-    "mis_ex":      {"ar": "تمارين البرمجة",                              "fr": "exercices de code"},
+    "mis_ex":      {"ar": "التمرين الشامل",                              "fr": "l'exercice de code"},
     "completed":   {"ar": "مكتمل",                                       "fr": "complété(s)"},
     "pass_txt":    {"ar": "🎓 مبروك! انتقلتِ إلى Data Science!",          "fr": "🎓 Félicitations ! Vous passez en Data Science !"},
     "fail_txt":    {"ar": "📖 لم تتجاوزي العتبة. راجعي الدروس وحاولي مجدداً!", "fr": "📖 Seuil non atteint. Révisez et réessayez !"},
     "ds_pass":     {"ar": "🚀 المرحلة التالية: Data Science مع Python!",  "fr": "🚀 Prochaine étape : Data Science avec Python !"},
     "ds_fail":     {"ar": "💪 العتبة 45% — واصلي التدريب والمحاولة!",    "fr": "💪 Seuil : 45% — continuez à vous entraîner !"},
     "lbl_qcm":     {"ar": "أسئلة QCM",                                   "fr": "Questions QCM"},
-    "lbl_ex":      {"ar": "تمارين البرمجة",                              "fr": "Exercices de code"},
+    "lbl_ex":      {"ar": "التمرين الشامل",                              "fr": "Exercice complet"},
     "lbl_tot":     {"ar": "المجموع الكلي",                               "fr": "Total général"},
     "breakdown":   {"ar": "---\n#### 📊 تفاصيل الأداء بالدرس",            "fr": "---\n#### 📊 Détail par leçon"},
     "reset":       {"ar": "🔄 إعادة الاختبار من البداية",                 "fr": "🔄 Recommencer le test"},
     "q_lbl":       {"ar": "سؤال",                                        "fr": "Question"},
+    "sol_title":   {"ar": "✅ الحل النموذجي",                             "fr": "✅ Solution de référence"},
 }
 
 def t(k):
@@ -137,7 +138,7 @@ LL = {
 def L(k): return LL[k][lang]
 
 # ─────────────────────────────────────────────
-# QCM DATA  (opts may be list or dict{ar,fr})
+# QCM DATA
 # ─────────────────────────────────────────────
 QCM_DATA = [
     # ── Variables ──
@@ -318,72 +319,168 @@ def q_opts(q):
     return o[lang] if isinstance(o, dict) else o
 
 # ─────────────────────────────────────────────
-# EXERCISES
+# SINGLE BIG EXERCISE
 # ─────────────────────────────────────────────
-EXERCISES = [
-    {"id":"ex_vars","lesson":"vars",
-     "title":  {"ar":"تبادل متغيرين",            "fr":"Échange de deux variables"},
-     "desc":   {"ar":"أنشئ `a = 10` و `b = 20`، بادلي قيمتيهما في سطر واحد، ثم اطبعي `a` ثم `b`.",
-                "fr":"Créez `a = 10` et `b = 20`, échangez leurs valeurs en une ligne, puis affichez `a` puis `b`."},
-     "starter":"a = 10\nb = 20\n# Swap here / بادلي هنا\n\nprint(a)\nprint(b)",
-     "expected":"20\n10",
-     "hint":   {"ar":"استخدمي:  a, b = b, a","fr":"Utilisez :  a, b = b, a"}},
+EXPECTED_OUTPUT = (
+    "Étudiant 1 : note=8 → Refusé\n"
+    "Étudiant 2 : note=15 → Bien\n"
+    "Étudiant 3 : note=11 → Passable\n"
+    "Étudiant 4 : note=17 → Très bien\n"
+    "Moyenne : 12.75\n"
+    "Maximum : 17\n"
+    "Minimum : 8\n"
+    "Admis   : 3\n"
+    "Refusés : 1"
+)
 
-    {"id":"ex_while","lesson":"while",
-     "title":  {"ar":"مجموع الأرقام الفردية",     "fr":"Somme des nombres impairs"},
-     "desc":   {"ar":"باستخدام حلقة while، احسبي مجموع الأرقام الفردية من 1 إلى 9 (يشمل 9) واطبعي النتيجة.",
-                "fr":"Avec une boucle while, calculez la somme des nombres impairs de 1 à 9 (inclus) et affichez le résultat."},
-     "starter":"total = 0\ni = 1\n# Complete here / أكملي هنا\n\nprint(total)",
-     "expected":"25",
-     "hint":   {"ar":"استخدمي  i % 2 != 0  للفحص، وزيدي i بـ 1.",
-                "fr":"Utilisez  i % 2 != 0  pour tester, et incrémentez i de 1."}},
+STARTER_CODE = """\
+# ── Données fixes (ne pas modifier) ──────────────────
+N = 4
+notes = [8, 15, 11, 17]
 
-    {"id":"ex_for","lesson":"for",
-     "title":  {"ar":"طباعة جدول الضرب",          "fr":"Table de multiplication"},
-     "desc":   {"ar":"باستخدام حلقة for، اطبعي جدول ضرب 3 من 1 إلى 5 بالشكل:  3 x 1 = 3",
-                "fr":"Avec une boucle for, affichez la table de 3 de 1 à 5 sous la forme :  3 x 1 = 3"},
-     "starter":"n = 3\nfor i in range(1, 6):\n    pass  # modify this / عدّلي هذا",
-     "expected":"3 x 1 = 3\n3 x 2 = 6\n3 x 3 = 9\n3 x 4 = 12\n3 x 5 = 15",
-     "hint":   {"ar":'استخدمي  print(f"{n} x {i} = {n*i}")',
-                "fr":'Utilisez  print(f"{n} x {i} = {n*i}")'}},
+# ── 1. Définir la fonction get_mention(note) ──────────
+def get_mention(note):
+    # Complétez ici / أكملي هنا
+    pass
 
-    {"id":"ex_cond","lesson":"cond",
-     "title":  {"ar":"تصنيف الدرجة",              "fr":"Classification de la note"},
-     "desc":   {"ar":"اكتبي كوداً يطبع التصنيف لـ `score = 73`:\n- 90+ → ممتاز\n- 70–89 → جيد جداً\n- 50–69 → مقبول\n- أقل من 50 → راسب",
-                "fr":"Écrivez un code qui affiche la mention pour `score = 73` :\n- 90+ → Excellent\n- 70–89 → Très bien\n- 50–69 → Passable\n- Moins de 50 → Échec"},
-     "starter":"score = 73\n# Complete here / أكملي هنا\n",
-     "expected_ar":"جيد جداً",
-     "expected_fr":"Très bien",
-     "hint":   {"ar":"استخدمي if / elif / else مع >= ","fr":"Utilisez if / elif / else avec >= "}},
+# ── 2. Afficher chaque étudiant ───────────────────────
+# Format exact : Étudiant 1 : note=8 → Refusé
+for i in range(N):
+    pass  # Complétez ici / أكملي هنا
 
-    {"id":"ex_ds","lesson":"ds",
-     "title":  {"ar":"إزالة التكرار من قائمة",    "fr":"Suppression des doublons"},
-     "desc":   {"ar":"`nums = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3]`\nحوّليها إلى set ثم ارجعيها إلى list مرتّبة واطبعيها.",
-                "fr":"`nums = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3]`\nConvertissez en set, revenez à une list triée et affichez."},
-     "starter":"nums = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3]\n# Complete here / أكملي هنا\n",
-     "expected":"[1, 2, 3, 4, 5, 6, 9]",
-     "hint":   {"ar":"استخدمي:  sorted(list(set(nums)))","fr":"Utilisez :  sorted(list(set(nums)))"}},
+# ── 3. Statistiques (sans sum/max/min built-ins) ──────
+total = 0
+admis = 0
+refuses = 0
+max_note = notes[0]
+min_note = notes[0]
 
-    {"id":"ex_func","lesson":"func",
-     "title":  {"ar":"دالة مجموع القائمة",        "fr":"Fonction somme d'une liste"},
-     "desc":   {"ar":"اكتبي `my_sum(lst)` تحسب المجموع بدون `sum()` ثم اطبعي `my_sum([1, 2, 3, 4, 5])`.",
-                "fr":"Écrivez `my_sum(lst)` qui calcule la somme sans `sum()`, puis affichez `my_sum([1, 2, 3, 4, 5])`."},
-     "starter":"def my_sum(lst):\n    # Complete here / أكملي هنا\n    pass\n\nprint(my_sum([1, 2, 3, 4, 5]))",
-     "expected":"15",
-     "hint":   {"ar":"استخدمي حلقة for لجمع العناصر في متغير total.",
-                "fr":"Utilisez une boucle for pour accumuler les éléments dans total."}},
-]
+i = 0
+while i < N:
+    pass  # Complétez ici / أكملي هنا
 
-def ex_expected(ex):
-    if "expected_ar" in ex:
-        return ex["expected_ar"] if is_ar else ex["expected_fr"]
-    return ex["expected"]
+moyenne = total / N
+
+print(f"Moyenne : {moyenne}")
+print(f"Maximum : {max_note}")
+print(f"Minimum : {min_note}")
+print(f"Admis   : {admis}")
+print(f"Refusés : {refuses}")
+"""
+
+REFERENCE_SOLUTION = """\
+N = 4
+notes = [8, 15, 11, 17]
+
+def get_mention(note):
+    if note >= 16:
+        return "Très bien"
+    elif note >= 14:
+        return "Bien"
+    elif note >= 12:
+        return "Assez bien"
+    elif note >= 10:
+        return "Passable"
+    else:
+        return "Refusé"
+
+for i in range(N):
+    print(f"Étudiant {i+1} : note={notes[i]} → {get_mention(notes[i])}")
+
+total = 0
+admis = 0
+refuses = 0
+max_note = notes[0]
+min_note = notes[0]
+
+i = 0
+while i < N:
+    total += notes[i]
+    if notes[i] >= 10:
+        admis += 1
+    else:
+        refuses += 1
+    if notes[i] > max_note:
+        max_note = notes[i]
+    if notes[i] < min_note:
+        min_note = notes[i]
+    i += 1
+
+moyenne = total / N
+
+print(f"Moyenne : {moyenne}")
+print(f"Maximum : {max_note}")
+print(f"Minimum : {min_note}")
+print(f"Admis   : {admis}")
+print(f"Refusés : {refuses}")
+"""
+
+EXERCISE_DESC = {
+    "ar": (
+        "**يغطي هذا التمرين: المتغيرات · while · for · الشروط · الدوال**\n\n"
+        "---\n"
+        "### 📋 المهام\n\n"
+        "**1️⃣ دالة `get_mention(note)` — ترجع المنحة:**\n"
+        "- `Très bien` إذا note ≥ 16\n"
+        "- `Bien` إذا note ≥ 14\n"
+        "- `Assez bien` إذا note ≥ 12\n"
+        "- `Passable` إذا note ≥ 10\n"
+        "- `Refusé` إذا note < 10\n\n"
+        "**2️⃣ حلقة `for` — طباعة كل طالب بالصيغة:**\n"
+        "`Étudiant 1 : note=8 → Refusé`\n\n"
+        "**3️⃣ حلقة `while` — حساب:**\n"
+        "- المتوسط · الأعلى · الأدنى\n"
+        "- عدد الناجحين (≥10) وعدد الراسبين\n\n"
+        "---\n"
+        "📌 **البيانات المستخدمة:** N=4 · notes=[8, 15, 11, 17]"
+    ),
+    "fr": (
+        "**Cet exercice couvre : variables · while · for · conditions · fonctions**\n\n"
+        "---\n"
+        "### 📋 Tâches à réaliser\n\n"
+        "**1️⃣ Fonction `get_mention(note)` — retourne la mention :**\n"
+        "- `Très bien` si note ≥ 16\n"
+        "- `Bien` si note ≥ 14\n"
+        "- `Assez bien` si note ≥ 12\n"
+        "- `Passable` si note ≥ 10\n"
+        "- `Refusé` si note < 10\n\n"
+        "**2️⃣ Boucle `for` — afficher chaque étudiant :**\n"
+        "`Étudiant 1 : note=8 → Refusé`\n\n"
+        "**3️⃣ Boucle `while` — calculer :**\n"
+        "- Moyenne · Maximum · Minimum\n"
+        "- Nombre d'admis (≥10) et refusés\n\n"
+        "---\n"
+        "📌 **Données utilisées :** N=4 · notes=[8, 15, 11, 17]"
+    ),
+}
+
+HINT_TEXT = {
+    "ar": (
+        "**get_mention:** استخدمي if/elif/else مع >= بالترتيب من الأعلى للأدنى.\n\n"
+        "**حلقة for:** `print(f\"Étudiant {i+1} : note={notes[i]} → {get_mention(notes[i])}\")`\n\n"
+        "**حلقة while:** داخل الحلقة:\n"
+        "- `total += notes[i]`\n"
+        "- قارني مع max_note وmin_note\n"
+        "- إذا `notes[i] >= 10` زيدي admis وإلا refuses\n"
+        "- لا تنسي: `i += 1`"
+    ),
+    "fr": (
+        "**get_mention :** utilisez if/elif/else avec >= du plus grand au plus petit.\n\n"
+        "**Boucle for :** `print(f\"Étudiant {i+1} : note={notes[i]} → {get_mention(notes[i])}\")`\n\n"
+        "**Boucle while :** dans la boucle :\n"
+        "- `total += notes[i]`\n"
+        "- comparez avec max_note et min_note\n"
+        "- si `notes[i] >= 10` incrémentez admis sinon refuses\n"
+        "- n'oubliez pas : `i += 1`"
+    ),
+}
 
 # ─────────────────────────────────────────────
 # SESSION STATE
 # ─────────────────────────────────────────────
 for k, v in [("qcm_answers",{}),("qcm_locked",{}),
-             ("ex_results",{}),("ex_outputs",{}),("ex_codes",{})]:
+             ("ex_result", False),("ex_output", None),
+             ("ex_code", STARTER_CODE), ("show_solution", False)]:
     if k not in st.session_state:
         st.session_state[k] = v
 
@@ -400,9 +497,8 @@ def run_code(code):
     return buf.getvalue().strip(), err
 
 def total_qcm(): return sum(1 for i,q in enumerate(QCM_DATA) if st.session_state.qcm_answers.get(i)==q["ans"])
-def total_ex():  return sum(1 for v in st.session_state.ex_results.values() if v)
 def all_qcm():   return len(st.session_state.qcm_locked)==len(QCM_DATA)
-def all_ex():    return len(st.session_state.ex_results)==len(EXERCISES)
+def all_ex():    return st.session_state.ex_result is True
 
 # ─────────────────────────────────────────────
 # LANGUAGE TOGGLE
@@ -471,65 +567,87 @@ with tab1:
         st.markdown(f'<p class="progress-label">{t("prog_q")} {done} / {len(QCM_DATA)}</p>', unsafe_allow_html=True)
         st.progress(done / len(QCM_DATA))
 
-# ══ TAB 2 ── EXERCISES ════════════════════════
+# ══ TAB 2 ── BIG EXERCISE ═════════════════════
 with tab2:
     st.markdown(t("ex_title"))
     st.caption(t("ex_cap"))
 
-    for ex in EXERCISES:
-        eid = ex["id"]
-        st.markdown(f"---\n#### {L(ex['lesson'])} — {ex['title'][lang]}")
-        st.markdown(ex["desc"][lang])
+    st.markdown("---")
+    st.markdown(EXERCISE_DESC[lang])
+    st.markdown("---")
 
-        default = st.session_state.ex_codes.get(eid, ex["starter"])
-        code = st.text_area("code", value=default, height=180,
-                            key=f"ta{eid}{lang}", label_visibility="collapsed")
-        st.session_state.ex_codes[eid] = code
+    code = st.text_area(
+        "code",
+        value=st.session_state.ex_code,
+        height=420,
+        key=f"ta_big_{lang}",
+        label_visibility="collapsed"
+    )
+    st.session_state.ex_code = code
 
-        cr, ch = st.columns([1, 1])
-        with cr: run_btn  = st.button(t("run"),  key=f"run{eid}{lang}", type="primary")
-        with ch: hint_btn = st.button(t("hint"), key=f"hint{eid}{lang}")
+    col_run, col_hint, col_sol = st.columns([1, 1, 1])
+    with col_run:  run_btn  = st.button(t("run"),  key=f"run_big_{lang}", type="primary", use_container_width=True)
+    with col_hint: hint_btn = st.button(t("hint"), key=f"hint_big_{lang}", use_container_width=True)
+    with col_sol:
+        sol_label = ("🔍 " + ("إخفاء الحل" if st.session_state.show_solution else "عرض الحل النموذجي")) if is_ar else \
+                    ("🔍 " + ("Masquer la solution" if st.session_state.show_solution else "Voir la solution"))
+        if st.button(sol_label, key=f"sol_big_{lang}", use_container_width=True):
+            st.session_state.show_solution = not st.session_state.show_solution
+            st.rerun()
 
-        if hint_btn:
-            st.info(f"{t('hint_lbl')} {ex['hint'][lang]}")
+    if hint_btn:
+        st.info(f"{t('hint_lbl')}\n\n{HINT_TEXT[lang]}")
 
-        if run_btn:
-            out, err = run_code(code)
-            st.session_state.ex_outputs[eid] = (out, err)
-            st.session_state.ex_results[eid] = (not err) and (out.strip() == ex_expected(ex).strip())
+    if st.session_state.show_solution:
+        st.markdown(f"**{t('sol_title')}**")
+        st.code(REFERENCE_SOLUTION, language="python")
 
-        if eid in st.session_state.ex_outputs:
-            out, err = st.session_state.ex_outputs[eid]
-            if err:
-                st.markdown(f'<div class="error-box">{t("code_err")}\n{err}</div>', unsafe_allow_html=True)
-            elif st.session_state.ex_results.get(eid):
-                st.markdown(f'<div class="correct-box">{t("ok_out")}<br><code>{out}</code></div>', unsafe_allow_html=True)
-            else:
-                st.markdown(
-                    f'<div class="wrong-box">{t("ko_out")}<br>'
-                    f'<code>{out or t("no_out")}</code><br>'
-                    f'<span style="color:#8890B5">{t("expected")} <code>{ex_expected(ex)}</code></span></div>',
-                    unsafe_allow_html=True)
+    if run_btn:
+        out, err = run_code(code)
+        st.session_state.ex_output = (out, err)
+        st.session_state.ex_result = (not err) and (out.strip() == EXPECTED_OUTPUT.strip())
 
+    if st.session_state.ex_output is not None:
+        out, err = st.session_state.ex_output
+        if err:
+            st.markdown(f'<div class="error-box">{t("code_err")}\n{err}</div>', unsafe_allow_html=True)
+        elif st.session_state.ex_result:
+            st.markdown(f'<div class="correct-box">{t("ok_out")}<br><pre style="margin:.5rem 0 0;color:#52D68A">{out}</pre></div>', unsafe_allow_html=True)
+        else:
+            st.markdown(
+                f'<div class="wrong-box">{t("ko_out")}<br>'
+                f'<pre style="margin:.5rem 0;color:#FF6B6B">{out or t("no_out")}</pre>'
+                f'<span style="color:#8890B5">{t("expected")}</span>'
+                f'<pre style="margin:.25rem 0;color:#8890B5">{EXPECTED_OUTPUT}</pre></div>',
+                unsafe_allow_html=True)
+
+    # Progress indicator
+    st.markdown("---")
     if all_ex():
-        st.success(f"{t('ex_done')} {total_ex()} / {len(EXERCISES)}")
+        st.success(f"{t('ex_done')} 1 / 1 ✅")
     else:
-        done = len(st.session_state.ex_results)
-        st.markdown(f'<p class="progress-label">{t("prog_ex")} {done} / {len(EXERCISES)}</p>', unsafe_allow_html=True)
-        st.progress(done / len(EXERCISES))
+        prog_val = 1.0 if all_ex() else 0.0
+        st.markdown(f'<p class="progress-label">{t("prog_ex")} {"✅" if all_ex() else "⏳"}</p>', unsafe_allow_html=True)
+        st.progress(prog_val)
 
 # ══ TAB 3 ── SCORE ════════════════════════════
 with tab3:
     st.markdown(t("score_ttl"))
 
+    # Score: 18 QCM + 1 exercise = 19 total
+    # But to keep weight fair: QCM=18pts, exercise=6pts (worth 6 like before) → total=24
+    EX_POINTS = 6  # exercise counts as 6 points
+
     if not all_qcm() or not all_ex():
         missing = []
         if not all_qcm(): missing.append(f"{t('mis_qcm')} ({len(st.session_state.qcm_locked)}/{len(QCM_DATA)} {t('completed')})")
-        if not all_ex():  missing.append(f"{t('mis_ex')} ({len(st.session_state.ex_results)}/{len(EXERCISES)} {t('completed')})")
+        if not all_ex():  missing.append(t('mis_ex'))
         st.warning(t("warn_pfx") + ("\n- ".join(missing)))
     else:
-        qs  = total_qcm(); es = total_ex()
-        tc  = qs + es;     tp = len(QCM_DATA) + len(EXERCISES)
+        qs  = total_qcm()
+        es  = EX_POINTS if st.session_state.ex_result else 0
+        tc  = qs + es
+        tp  = len(QCM_DATA) + EX_POINTS
         pct = round(tc / tp * 100, 1)
         ok  = pct >= 45
         ec  = "#52D68A" if ok else "#FF6B6B"
@@ -549,7 +667,7 @@ with tab3:
                 </div>
                 <div style="background:#1a1f35;border-radius:12px;padding:1rem 1.5rem;min-width:140px">
                     <div style="color:#8890B5;font-size:.85rem">{t('lbl_ex')}</div>
-                    <div style="font-size:1.6rem;font-weight:900;color:#4ECDC4">{es}<span style="font-size:1rem;color:#8890B5"> / {len(EXERCISES)}</span></div>
+                    <div style="font-size:1.6rem;font-weight:900;color:#4ECDC4">{es}<span style="font-size:1rem;color:#8890B5"> / {EX_POINTS}</span></div>
                 </div>
                 <div style="background:#1a1f35;border-radius:12px;padding:1rem 1.5rem;min-width:140px">
                     <div style="color:#8890B5;font-size:.85rem">{t('lbl_tot')}</div>
@@ -565,24 +683,28 @@ with tab3:
         lqm = {}
         for i, q in enumerate(QCM_DATA):
             lqm.setdefault(q["lesson"], []).append(st.session_state.qcm_answers.get(i) == q["ans"])
-        lex = {ex["lesson"]: st.session_state.ex_results.get(ex["id"], False) for ex in EXERCISES}
 
         for lk in list(dict.fromkeys(q["lesson"] for q in QCM_DATA)):
             qr = lqm.get(lk, [])
-            ok_l = sum(qr) + (1 if lex.get(lk, False) else 0)
-            tot_l = len(qr) + 1
+            # Exercise is attached to "func" lesson (covers multiple)
+            ex_ok = 1 if (lk == "func" and st.session_state.ex_result) else 0
+            ex_tot = EX_POINTS if lk == "func" else 0
+            ok_l = sum(qr) + ex_ok
+            tot_l = len(qr) + (1 if lk == "func" else 0)
             col = "#52D68A" if ok_l == tot_l else "#F7C948" if ok_l > 0 else "#FF6B6B"
             ico = "✅" if ok_l == tot_l else "⚠️" if ok_l > 0 else "❌"
+            label_suffix = f" + {t('lbl_ex')}" if lk == "func" else ""
             st.markdown(f"""
             <div style="display:flex;justify-content:space-between;align-items:center;
                         background:#0F1220;border:1px solid rgba(255,255,255,.07);
                         border-radius:10px;padding:.75rem 1.25rem;margin-bottom:.5rem;direction:ltr">
-                <span style="font-weight:700">{ico} {L(lk)}</span>
+                <span style="font-weight:700">{ico} {L(lk)}{label_suffix}</span>
                 <span style="color:{col};font-weight:900;font-family:monospace">{ok_l} / {tot_l}</span>
             </div>""", unsafe_allow_html=True)
 
         st.markdown("---")
         if st.button(t("reset"), type="secondary"):
-            for k in ["qcm_answers","qcm_locked","ex_results","ex_outputs","ex_codes"]:
-                st.session_state[k] = {}
+            for k in ["qcm_answers","qcm_locked","ex_result","ex_output","show_solution"]:
+                st.session_state[k] = {} if k in ["qcm_answers","qcm_locked"] else (False if k != "ex_output" else None)
+            st.session_state.ex_code = STARTER_CODE
             st.rerun()
